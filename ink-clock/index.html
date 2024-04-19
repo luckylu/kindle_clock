@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Super Simple ink Clock.</title>
-  <style>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Simple ink Clock.</title>
+    <style>
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
@@ -30,17 +30,20 @@
       display: inline-block;
     }
   </style>
-</head>
-<body>
-  <div id="main">
-    <div id="clock" style="font-size: 36px; font-weight: 400">
-      <div class="line"><div class="num num_1_1"></div><div class="num num_1_2"></div></div>
-      <div class="line"><div class="num num_2_1"></div><div class="num num_2_2"></div></div>
-      <div class="line"><div class="num num_3_1"></div><div class="num num_3_2"></div></div>
+  </head>
+  <body>
+    <div id="main">
+      <div id="clock" style="font-size: 36px; font-weight: 400">
+        <div class="line"><div class="num num_1_1"></div><div
+            class="num num_1_2"></div></div>
+        <div class="line"><div class="num num_2_1"></div><div
+            class="num num_2_2"></div></div>
+        <div class="line"><div class="num num_3_1"></div><div
+            class="num num_3_2"></div></div>
+      </div>
     </div>
-  </div>
-  <div id="refresh"></div>
-  <script>
+    <div id="refresh"></div>
+    <script>
     /* Debug tool */
     function log(msg){
       var log = document.createElement('div')
@@ -88,7 +91,7 @@
     var elAP
     /* 当前计时器标记 */
     var nowTimer
-    var lines = (nowDirection === 'left' || nowDirection === 'right') ? 3 : 2
+    var lines = 2
     var img = new Image()
     var imgW = 0
     var imgH = 0
@@ -159,53 +162,53 @@
         })
         continue
       }
-      if(layout[i]==='month'){      // 此元素用以显示年月
-        elNums[i].innerHTML = nowDirection === 'left' ? yearCode+monthCode : monthCode+yearCode
-        elYear = document.getElementById('year')
-        elYears = elNums[i].getElementsByClassName('year-num')
-        for(var j=0; j<elYears.length; j++){
-          timeElArr.push({
-            el: elYears[j],
-            num: '',
-            dataName: 'year-'+(nowDirection==='left' ? elYears.length-1-j : j),
-            scale: 0.25,
-            line: 1
-          })
-        }
-        elMonths = elNums[i].getElementsByClassName('month-num')
-        for(var j=0; j<elMonths.length; j++){
-          timeElArr.push({
-            el: elMonths[j],
-            num: '',
-            dataName: 'month-'+(nowDirection==='left' ? elMonths.length-1-j : j),
-            scale: 0.5,
-            line: 0
-          })
-        }
-        continue
-      }
-      if(layout[i]==='date'){       // 此元素用以显示日期
-        elNums[i].innerHTML = nowDirection === 'left' ? dateCode+apCode : apCode+dateCode
-        elDates = elNums[i].getElementsByClassName('date-num')
-        for(var j=0; j<elDates.length; j++){
-          timeElArr.push({
-            el: elDates[j],
-            num: '',
-            dataName: 'date-'+(nowDirection==='left' ? elDates.length-1-j : j),
-            scale: 0.5,
-            line: 1
-          })
-        }
-        elAP = document.getElementById('ampm')
-        timeElArr.push({
-          el: elAP,
-          num: '',
-          dataName: 'ampm',
-          scale: 1,
-          line: 2
-        })
-        continue
-      }
+      // if(layout[i]==='month'){      // 此元素用以显示年月
+      //   elNums[i].innerHTML = nowDirection === 'left' ? yearCode+monthCode : monthCode+yearCode
+      //   elYear = document.getElementById('year')
+      //   elYears = elNums[i].getElementsByClassName('year-num')
+      //   for(var j=0; j<elYears.length; j++){
+      //     timeElArr.push({
+      //       el: elYears[j],
+      //       num: '',
+      //       dataName: 'year-'+(nowDirection==='left' ? elYears.length-1-j : j),
+      //       scale: 0.25,
+      //       line: 1
+      //     })
+      //   }
+      //   elMonths = elNums[i].getElementsByClassName('month-num')
+      //   for(var j=0; j<elMonths.length; j++){
+      //     timeElArr.push({
+      //       el: elMonths[j],
+      //       num: '',
+      //       dataName: 'month-'+(nowDirection==='left' ? elMonths.length-1-j : j),
+      //       scale: 0.5,
+      //       line: 0
+      //     })
+      //   }
+      //   continue
+      // }
+      // if(layout[i]==='date'){       // 此元素用以显示日期
+      //   elNums[i].innerHTML = nowDirection === 'left' ? dateCode+apCode : apCode+dateCode
+      //   elDates = elNums[i].getElementsByClassName('date-num')
+      //   for(var j=0; j<elDates.length; j++){
+      //     timeElArr.push({
+      //       el: elDates[j],
+      //       num: '',
+      //       dataName: 'date-'+(nowDirection==='left' ? elDates.length-1-j : j),
+      //       scale: 0.5,
+      //       line: 1
+      //     })
+      //   }
+      //   elAP = document.getElementById('ampm')
+      //   timeElArr.push({
+      //     el: elAP,
+      //     num: '',
+      //     dataName: 'ampm',
+      //     scale: 1,
+      //     line: 2
+      //   })
+      //   continue
+      // }
       elNums[i].dataset.layout = layout[i]
     }
     var ratio = 0
@@ -231,7 +234,7 @@
           el.style.backgroundPositionY = (numH*(line-1.5)-imgH)*ratio+'px'
           break;
         case 'left':
-          el.style.backgroundPositionX = -numW*line*elRatio+'px'
+          el.style.backgroundPositionX = -numW*1*elRatio+'px'
           el.style.backgroundPositionY = ((x+1)*numH-imgH)*elRatio+'px'
           break;
 
@@ -263,9 +266,11 @@
         for(var i=0; i<date.length; i++){ clockObj['date-'+i] = date[i] }
         clockObj.ampm = hours>=12 ? '1' : '0'
       }
+      console.log(timeElArr)
       for(var i=0; i<timeElArr.length; i++){
         const timeItem = timeElArr[i]
         var newVal = +clockObj[timeItem.dataName]
+        console.log(newVal)
         changeNum(timeItem, newVal)
       }
       nowTimer = window.setTimeout(clockRefresh, (new Date())%6e4)
