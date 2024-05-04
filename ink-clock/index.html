@@ -44,6 +44,16 @@
     </div>
     <div id="refresh"></div>
     <script>
+            // 设置刷新间隔为 4 小时 (以毫秒为单位)
+      const refreshInterval = 4 * 60 * 60 * 1000;
+
+      // 定义刷新页面的函数
+      function refreshPage() {
+        location.reload();
+      }
+
+      // 使用 setInterval() 函数设置定时刷新
+      setInterval(refreshPage, refreshInterval);
     /* Debug tool */
     function log(msg){
       var log = document.createElement('div')
